@@ -183,7 +183,7 @@ export default function Index() {
                   className="h-28 md:h-32 w-auto"
                 />
               </a>
-              <p className="text-primary font-bold mb-6 md:mb-8 text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto px-4">
+              <p className="text-primary font-extrabold mb-6 md:mb-8 text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto px-4">
                 КоперГруппСервис — надежный партнер в оборудовании для свайного фундаментостроения
               </p>
               <div className="flex flex-col md:flex-row items-stretch md:items-center justify-center gap-4 md:gap-8 px-4">
