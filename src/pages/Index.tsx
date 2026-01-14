@@ -4,12 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const equipmentCategories = [
-  { icon: "Hammer", title: "Сваебойные молоты" },
-  { icon: "Building2", title: "Копровые мачты" },
-  { icon: "Waves", title: "Вибропогружатели экскаваторные" },
-  { icon: "Truck", title: "Сваебойные установки" },
-  { icon: "CircleDot", title: "Свайные наголовники" },
-  { icon: "Drill", title: "Буровые машины" }
+  { icon: "Hammer", title: "Сваебойные молоты", url: "https://kgs-ural.ru/catalog/svaebojnye-moloty/" },
+  { icon: "Building2", title: "Копровые мачты", url: "https://kgs-ural.ru/catalog/machty-koprovye/" },
+  { icon: "Waves", title: "Вибропогружатели экскаваторные", url: "https://kgs-ural.ru/catalog/vibropogruzhateli-ekskavatornye/" },
+  { icon: "Truck", title: "Сваебойные установки", url: "https://kgs-ural.ru/catalog/svaebojnye-mashiny/" },
+  { icon: "CircleDot", title: "Свайные наголовники", url: "https://kgs-ural.ru/catalog/svajnye-nagolovniki/" },
+  { icon: "Drill", title: "Буровые машины", url: "https://kgs-ural.ru/catalog/burovye-mashiny/" }
 ];
 
 const services = [
@@ -51,31 +51,22 @@ export default function Index() {
                 </div>
                 
                 <h1 className="font-heading text-3xl md:text-6xl font-bold mb-6 leading-tight">
-                  Оборудование и<br/>машины для<br/>строительства<br/>свайных фундаментов
+                  Оборудование и<br/>машины для строительства<br/>свайных фундаментов
                 </h1>
                 
                 <p className="text-lg md:text-2xl text-secondary font-bold tracking-wider mb-8">
                   ПРОИЗВОДСТВО • ПОСТАВКА • СЕРВИС
                 </p>
                 
-                <div className="grid grid-cols-3 gap-6 max-w-3xl">
-                  <div className="text-center">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors">
-                      <div className="text-3xl font-bold text-secondary mb-1">350+</div>
-                      <div className="text-sm text-white/90">клиентов</div>
-                    </div>
+                <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 md:px-4 md:py-4 hover:bg-white/20 transition-colors">
+                    <div className="text-lg md:text-xl font-bold text-secondary whitespace-nowrap">350+ клиентов</div>
                   </div>
-                  <div className="text-center">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors">
-                      <div className="text-2xl font-bold text-secondary mb-1">Прямые</div>
-                      <div className="text-sm text-white/90">поставки</div>
-                    </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 md:px-4 md:py-4 hover:bg-white/20 transition-colors">
+                    <div className="text-lg md:text-xl font-bold text-secondary whitespace-nowrap">Прямые поставки</div>
                   </div>
-                  <div className="text-center">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors">
-                      <div className="text-xl font-bold text-secondary mb-1">Собственное</div>
-                      <div className="text-sm text-white/90">производство</div>
-                    </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 md:px-4 md:py-4 hover:bg-white/20 transition-colors">
+                    <div className="text-base md:text-lg font-bold text-secondary whitespace-nowrap">Собственное производство</div>
                   </div>
                 </div>
               </div>
@@ -90,22 +81,29 @@ export default function Index() {
             
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               {equipmentCategories.map((category, index) => (
-                <Card 
-                  key={index} 
-                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-secondary/20 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                <a 
+                  key={index}
+                  href={category.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
-                        <Icon name={category.icon as any} className="text-secondary" size={28} />
+                  <Card 
+                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-secondary/20 animate-scale-in cursor-pointer"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
+                          <Icon name={category.icon as any} className="text-secondary" size={28} />
+                        </div>
+                        <h3 className="font-heading font-bold text-lg text-primary group-hover:text-secondary transition-colors">
+                          {category.title}
+                        </h3>
                       </div>
-                      <h3 className="font-heading font-bold text-lg text-primary group-hover:text-secondary transition-colors">
-                        {category.title}
-                      </h3>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
               ))}
             </div>
 
@@ -118,7 +116,7 @@ export default function Index() {
                 />
               </div>
               <p className="relative text-gray-800 font-medium mb-6 text-lg leading-relaxed">
-                <span className="font-heading text-2xl font-bold text-primary">КоперГруппСервис</span> предлагает полный цикл услуг под ключ, обеспечивая своих клиентов всем необходимым для успешной реализации строительных проектов:
+                <span className="font-heading text-2xl font-bold text-primary">КоперГруппСервис</span> предлагает комплексное обслуживание, обеспечивая своих клиентов всем необходимым для успешной реализации строительных проектов:
               </p>
               
               <div className="relative space-y-4">
