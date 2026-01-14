@@ -4,12 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const equipmentCategories = [
-  { icon: "Hammer", title: "Сваебойные молоты", url: "https://kgs-ural.ru/catalog/svaebojnye-moloty/" },
-  { icon: "Building2", title: "Копровые мачты", url: "https://kgs-ural.ru/catalog/machty-koprovye/" },
-  { icon: "Waves", title: "Вибропогружатели экскаваторные", url: "https://kgs-ural.ru/catalog/vibropogruzhateli-ekskavatornye/" },
-  { icon: "Truck", title: "Сваебойные установки", url: "https://kgs-ural.ru/catalog/svaebojnye-mashiny/" },
-  { icon: "CircleDot", title: "Свайные наголовники", url: "https://kgs-ural.ru/catalog/svajnye-nagolovniki/" },
-  { icon: "Drill", title: "Буровые машины", url: "https://kgs-ural.ru/catalog/burovye-mashiny/" }
+  { icon: "Hammer", title: "Сваебойные молоты", url: "https://kgs-ural.ru/catalog/svaebojnye-moloty/", image: "https://kgs-ural.ru/upload/iblock/d95/jf3e58o6a3y6a87lfxk4bw1vc0rlg06g.jpg" },
+  { icon: "Building2", title: "Копровые мачты", url: "https://kgs-ural.ru/catalog/machty-koprovye/", image: "https://kgs-ural.ru/upload/iblock/80e/hd3fccv93v9xhd7z1fqkkbxg4y8t3lal.jpg" },
+  { icon: "Waves", title: "Вибропогружатели экскаваторные", url: "https://kgs-ural.ru/catalog/vibropogruzhateli-ekskavatornye/", image: "https://kgs-ural.ru/upload/iblock/d00/vq5swccvb22yuw8p13t02x9ujmtwn0qk.jpg" },
+  { icon: "Truck", title: "Сваебойные установки", url: "https://kgs-ural.ru/catalog/svaebojnye-mashiny/", image: "https://kgs-ural.ru/upload/iblock/1a6/rgg97d78okx40ajgtspvj3ujbgpq60g3.jpg" },
+  { icon: "CircleDot", title: "Свайные наголовники", url: "https://kgs-ural.ru/catalog/svajnye-nagolovniki/", image: "https://kgs-ural.ru/upload/iblock/79a/o7nqbsf9wbp8cjt5jwtfmv6xk71zk9m9.jpg" },
+  { icon: "Drill", title: "Буровые машины", url: "https://kgs-ural.ru/catalog/burovye-mashiny/", image: "https://kgs-ural.ru/upload/iblock/6c7/ij3sxxf42zj17a2cqzwb2lh7c20rynsg.jpg" }
 ];
 
 const services = [
@@ -37,36 +37,43 @@ export default function Index() {
               </div>
               
               <div className="relative z-10 px-6 md:px-12 py-8 md:py-12 text-white cursor-pointer">
-                <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src="https://cdn.poehali.dev/files/KGS_logo_white_yellow.png" 
-                      alt="КГС" 
-                      className="h-16 md:h-20 w-auto"
-                    />
-                  </div>
+                <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
+                  <img 
+                    src="https://cdn.poehali.dev/files/KGS_logo_white_yellow.png" 
+                    alt="КГС" 
+                    className="h-16 md:h-20 w-auto"
+                  />
                   <Badge className="bg-secondary text-white border-0 text-sm font-semibold px-4 py-2 hover:bg-secondary/90 shadow-lg">
                     10+ лет на рынке
                   </Badge>
                 </div>
                 
                 <h1 className="font-heading text-3xl md:text-6xl font-bold mb-6 leading-tight">
-                  Оборудование и<br/>машины для строительства<br/>свайных фундаментов
+                  Оборудование и машины<br/>для строительства свайных фундаментов
                 </h1>
                 
                 <p className="text-lg md:text-2xl text-secondary font-bold tracking-wider mb-8">
                   ПРОИЗВОДСТВО • ПОСТАВКА • СЕРВИС
                 </p>
                 
-                <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 md:px-4 md:py-4 hover:bg-white/20 transition-colors">
-                    <div className="text-lg md:text-xl font-bold text-secondary whitespace-nowrap">350+ клиентов</div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-3xl">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 hover:bg-white/20 transition-colors flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                      <Icon name="Check" className="text-white" size={14} />
+                    </div>
+                    <div className="text-base md:text-lg font-bold text-secondary">350+ клиентов</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 md:px-4 md:py-4 hover:bg-white/20 transition-colors">
-                    <div className="text-lg md:text-xl font-bold text-secondary whitespace-nowrap">Прямые поставки</div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 hover:bg-white/20 transition-colors flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                      <Icon name="Check" className="text-white" size={14} />
+                    </div>
+                    <div className="text-base md:text-lg font-bold text-secondary">Прямые поставки</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 md:px-4 md:py-4 hover:bg-white/20 transition-colors">
-                    <div className="text-base md:text-lg font-bold text-secondary whitespace-nowrap">Собственное производство</div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 hover:bg-white/20 transition-colors flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                      <Icon name="Check" className="text-white" size={14} />
+                    </div>
+                    <div className="text-sm md:text-base font-bold text-secondary leading-tight">Собственное<br className="md:hidden" /> производство</div>
                   </div>
                 </div>
               </div>
@@ -89,9 +96,17 @@ export default function Index() {
                   className="block"
                 >
                   <Card 
-                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-secondary/20 animate-scale-in cursor-pointer"
+                    className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-secondary/20 animate-scale-in cursor-pointer overflow-hidden"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={category.image} 
+                        alt={category.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+                    </div>
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
@@ -169,13 +184,13 @@ export default function Index() {
             </div>
 
             <div className="text-center py-8 border-t border-gray-200">
-              <div className="flex items-center justify-center gap-3 mb-6">
+              <a href="https://kgs-ural.ru" target="_blank" rel="noopener noreferrer" className="inline-block mb-6 hover:opacity-80 transition-opacity">
                 <img 
                   src="https://cdn.poehali.dev/files/Логотип рабочий без фона.png" 
                   alt="КГС" 
                   className="h-20 w-auto"
                 />
-              </div>
+              </a>
               <p className="text-gray-900 font-bold mb-8 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto">
                 КоперГруппСервис — надежный партнер в оборудовании для свайного фундаментостроения
               </p>
