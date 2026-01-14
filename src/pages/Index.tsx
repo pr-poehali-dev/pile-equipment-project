@@ -26,37 +26,60 @@ export default function Index() {
       <div className="max-w-4xl mx-auto p-4 md:p-8">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in">
           <div className="relative overflow-hidden">
-            <div className="absolute inset-0">
-              <img 
-                src="https://cdn.poehali.dev/files/Снимок экрана 2026-01-13 164626.png" 
-                alt="КГС Производство" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/85"></div>
-            </div>
-            
-            <div className="relative z-10 px-6 md:px-12 py-8 md:py-12 text-white">
-              <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-4">
-                  <img 
-                    src="https://cdn.poehali.dev/files/KGS_logo_white_yellow.png" 
-                    alt="КГС" 
-                    className="h-16 md:h-20 w-auto"
-                  />
-                </div>
-                <Badge className="bg-secondary text-white border-0 text-sm font-semibold px-4 py-2 hover:bg-secondary/90 shadow-lg">
-                  10+ лет на рынке
-                </Badge>
+            <a href="https://kgs-ural.ru" target="_blank" rel="noopener noreferrer" className="block">
+              <div className="absolute inset-0">
+                <img 
+                  src="https://cdn.poehali.dev/files/с полом.png" 
+                  alt="КГС Производство" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/85"></div>
               </div>
               
-              <h1 className="font-heading text-3xl md:text-6xl font-bold mb-4 leading-tight">
-                Оборудование и<br/>машины для<br/>строительства<br/>свайных фундаментов
-              </h1>
-              
-              <p className="text-lg md:text-2xl text-secondary font-bold tracking-wider leading-relaxed">
-                ПРОИЗВОДСТВО • ПОСТАВКА • СЕРВИС
-              </p>
-            </div>
+              <div className="relative z-10 px-6 md:px-12 py-8 md:py-12 text-white cursor-pointer">
+                <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
+                  <div className="flex items-center gap-4">
+                    <img 
+                      src="https://cdn.poehali.dev/files/KGS_logo_white_yellow.png" 
+                      alt="КГС" 
+                      className="h-16 md:h-20 w-auto"
+                    />
+                  </div>
+                  <Badge className="bg-secondary text-white border-0 text-sm font-semibold px-4 py-2 hover:bg-secondary/90 shadow-lg">
+                    10+ лет на рынке
+                  </Badge>
+                </div>
+                
+                <h1 className="font-heading text-3xl md:text-6xl font-bold mb-6 leading-tight">
+                  Оборудование и<br/>машины для<br/>строительства<br/>свайных фундаментов
+                </h1>
+                
+                <p className="text-lg md:text-2xl text-secondary font-bold tracking-wider mb-8">
+                  ПРОИЗВОДСТВО • ПОСТАВКА • СЕРВИС
+                </p>
+                
+                <div className="grid grid-cols-3 gap-6 max-w-3xl">
+                  <div className="text-center">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors">
+                      <div className="text-3xl font-bold text-secondary mb-1">350+</div>
+                      <div className="text-sm text-white/90">клиентов</div>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors">
+                      <div className="text-2xl font-bold text-secondary mb-1">Прямые</div>
+                      <div className="text-sm text-white/90">поставки</div>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-colors">
+                      <div className="text-xl font-bold text-secondary mb-1">Собственное</div>
+                      <div className="text-sm text-white/90">производство</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
 
           <div className="p-6 md:p-12">
@@ -86,12 +109,19 @@ export default function Index() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-10 mb-12 border border-primary/10">
-              <p className="text-gray-800 font-medium mb-6 text-lg leading-relaxed">
-                КоперГруппСервис предлагает полный цикл услуг под ключ, обеспечивая своих клиентов всем необходимым для успешной реализации строительных проектов:
+            <div className="relative bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-10 mb-12 border border-primary/10 overflow-hidden">
+              <div className="absolute inset-0 opacity-5">
+                <img 
+                  src="https://cdn.poehali.dev/files/Пост ТГ 1.png" 
+                  alt="" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="relative text-gray-800 font-medium mb-6 text-lg leading-relaxed">
+                <span className="font-heading text-2xl font-bold text-primary">КоперГруппСервис</span> предлагает полный цикл услуг под ключ, обеспечивая своих клиентов всем необходимым для успешной реализации строительных проектов:
               </p>
               
-              <div className="space-y-4">
+              <div className="relative space-y-4">
                 {services.map((service, index) => (
                   <div 
                     key={index} 
@@ -141,35 +171,37 @@ export default function Index() {
             </div>
 
             <div className="text-center py-8 border-t border-gray-200">
-              <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="flex items-center justify-center gap-3 mb-6">
                 <img 
-                  src="https://cdn.poehali.dev/files/KGS_logo_white_yellow.png" 
+                  src="https://cdn.poehali.dev/files/Логотип рабочий без фона.png" 
                   alt="КГС" 
-                  className="h-14 w-auto"
+                  className="h-20 w-auto"
                 />
               </div>
-              <p className="text-gray-700 mb-6 text-base leading-relaxed max-w-2xl mx-auto">
+              <p className="text-gray-900 font-bold mb-8 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto">
                 КоперГруппСервис — надежный партнер в оборудовании для свайного фундаментостроения
               </p>
-              <div className="flex items-center justify-center gap-6">
+              <div className="flex items-center justify-center gap-8">
                 <Button 
-                  variant="link" 
-                  className="text-secondary hover:text-secondary/80 font-semibold group"
+                  variant="outline" 
+                  className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold text-lg px-6 py-3 rounded-xl group"
                   asChild
                 >
                   <a href="https://kgs-ural.ru" target="_blank" rel="noopener noreferrer">
                     Посетить сайт
-                    <Icon name="ExternalLink" className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={16} />
+                    <Icon name="ExternalLink" className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={20} />
                   </a>
                 </Button>
                 <Button 
-                  variant="ghost" 
-                  size="icon"
-                  className="text-secondary hover:text-secondary/80 hover:bg-secondary/10 rounded-full"
+                  size="lg"
+                  className="bg-[#0088cc] hover:bg-[#0088cc]/90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all group"
                   asChild
                 >
-                  <a href="https://t.me/kgs_ural" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                    <Icon name="MessageCircle" size={24} />
+                  <a href="https://t.me/kgs_ural" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                    </svg>
+                    Telegram
                   </a>
                 </Button>
               </div>
