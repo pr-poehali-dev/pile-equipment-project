@@ -184,13 +184,13 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="bg-white border-2 border-primary/20 rounded-2xl p-8 md:p-10 mb-8">
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+            <div className="bg-white border-2 border-primary/20 rounded-2xl p-4 md:p-10 mb-8">
+              <h2 className="font-heading text-xl md:text-3xl font-bold text-primary mb-4 md:mb-6 text-center">
                 Получить консультацию
               </h2>
               
               <form 
-                className="max-w-xl mx-auto space-y-4"
+                className="max-w-xl mx-auto space-y-3 md:space-y-4"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const subject = `Заявка на консультацию от ${formData.name}`;
@@ -281,7 +281,7 @@ export default function Index() {
                 </Button>
               </form>
 
-              <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+              <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 text-center">
                 <p className="text-gray-600 mb-4">Или позвоните нам:</p>
                 <Button 
                   size="lg" 

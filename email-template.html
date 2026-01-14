@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КоперГруппСервис - Оборудование для свайных фундаментов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
+            background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            position: relative;
+            padding: 40px 30px;
+            color: white;
+            background-image: url('https://cdn.poehali.dev/files/с%20полом.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(39, 51, 105, 0.85);
+        }
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            height: 80px;
+        }
+        .badge {
+            background: #F6A327;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+        .tagline {
+            font-size: 20px;
+            color: #F6A327;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 12px 16px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stat-check {
+            width: 24px;
+            height: 24px;
+            background: #F6A327;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .stat-text {
+            color: #F6A327;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #273369;
+            margin: 0 0 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .equipment-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .equipment-card:hover {
+            border-color: rgba(246, 163, 39, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+        .equipment-image {
+            height: 180px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .equipment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .equipment-title {
+            padding: 20px;
+            text-align: center;
+        }
+        .equipment-title h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #273369;
+            margin: 0;
+        }
+        .button {
+            display: inline-block;
+            background: #F6A327;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(246, 163, 39, 0.3);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(246, 163, 39, 0.9);
+            box-shadow: 0 20px 25px -5px rgba(246, 163, 39, 0.3);
+        }
+        .services {
+            background: linear-gradient(135deg, rgba(39, 51, 105, 0.03), rgba(246, 163, 39, 0.03));
+            border: 1px solid rgba(39, 51, 105, 0.1);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+        }
+        .services-intro {
+            color: #273369;
+            font-size: 18px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .services-intro strong {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .service-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .service-check {
+            width: 24px;
+            height: 24px;
+            background: #F6A327;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .service-text {
+            color: #273369;
+            line-height: 1.6;
+        }
+        .contact-section {
+            background: white;
+            border: 2px solid rgba(39, 51, 105, 0.2);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+        }
+        .contact-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #273369;
+            text-align: center;
+            margin: 0 0 30px 0;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .button-primary {
+            background: #F6A327;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(246, 163, 39, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .button-outline {
+            background: white;
+            color: #273369;
+            border: 2px solid #273369;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .footer-logo {
+            height: 120px;
+            margin-bottom: 24px;
+        }
+        .footer-tagline {
+            color: #273369;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        .footer-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .telegram-button {
+            background: #0088cc;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 136, 204, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .header {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .tagline {
+                font-size: 16px;
+            }
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            .services, .contact-section {
+                padding: 30px 20px;
+            }
+            .contact-buttons {
+                flex-direction: column;
+            }
+            .button-primary, .button-outline {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <div class="header-top">
+                        <img src="https://cdn.poehali.dev/files/KGS_logo_white_yellow.png" alt="КГС" class="logo">
+                        <div class="badge">10+ лет на рынке</div>
+                    </div>
+                    
+                    <h1>Оборудование и машины<br>для строительства свайных фундаментов</h1>
+                    
+                    <div class="tagline">ПРОИЗВОДСТВО • ПОСТАВКА • СЕРВИС</div>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-check">✓</div>
+                            <div class="stat-text">350+ клиентов</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-check">✓</div>
+                            <div class="stat-text">Прямые поставки</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-check">✓</div>
+                            <div class="stat-text">Собственное производство</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>📦 Каталог оборудования</h2>
+                
+                <div class="equipment-grid">
+                    <a href="https://kgs-ural.ru/catalog/svaebojnye-moloty/" class="equipment-card">
+                        <div class="equipment-image">
+                            <img src="https://cdn.poehali.dev/files/Сваебойные%20молоты.png" alt="Сваебойные молоты">
+                        </div>
+                        <div class="equipment-title">
+                            <h3>Сваебойные молоты</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="https://kgs-ural.ru/catalog/machty-koprovye/" class="equipment-card">
+                        <div class="equipment-image">
+                            <img src="https://cdn.poehali.dev/files/Копровые%20мачты.png" alt="Копровые мачты">
+                        </div>
+                        <div class="equipment-title">
+                            <h3>Копровые мачты</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="https://kgs-ural.ru/catalog/vibropogruzhateli-ekskavatornye/" class="equipment-card">
+                        <div class="equipment-image">
+                            <img src="https://cdn.poehali.dev/files/Вибропогружатели%20экскаваторные.png" alt="Вибропогружатели экскаваторные">
+                        </div>
+                        <div class="equipment-title">
+                            <h3>Вибропогружатели экскаваторные</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="https://kgs-ural.ru/catalog/svaebojnye-mashiny/" class="equipment-card">
+                        <div class="equipment-image">
+                            <img src="https://cdn.poehali.dev/files/Сваебойные%20машины.png" alt="Сваебойные установки">
+                        </div>
+                        <div class="equipment-title">
+                            <h3>Сваебойные установки</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="https://kgs-ural.ru/catalog/svajnye-nagolovniki/" class="equipment-card">
+                        <div class="equipment-image">
+                            <img src="https://cdn.poehali.dev/files/Свайные%20наголовники.png" alt="Свайные наголовники">
+                        </div>
+                        <div class="equipment-title">
+                            <h3>Свайные наголовники</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="https://kgs-ural.ru/catalog/burovye-mashiny/" class="equipment-card">
+                        <div class="equipment-image">
+                            <img src="https://cdn.poehali.dev/files/Буровые%20машины.png" alt="Буровые машины">
+                        </div>
+                        <div class="equipment-title">
+                            <h3>Буровые машины</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <a href="https://kgs-ural.ru/catalog/" class="button">
+                        📦 Полный каталог оборудования
+                    </a>
+                </div>
+
+                <!-- Services -->
+                <div class="services">
+                    <div class="services-intro">
+                        <strong>КоперГруппСервис</strong> предлагает комплексное обслуживание, обеспечивая своих клиентов всем необходимым для успешной реализации строительных проектов:
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-check">✓</div>
+                        <div class="service-text">Профессиональные консультации по подбору оборудования и техники</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-check">✓</div>
+                        <div class="service-text">Организация доставки любым удобным способом (ж/д, морским или автомобильным транспортом) до строительной площадки заказчика</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-check">✓</div>
+                        <div class="service-text">Полное таможенное оформление грузов</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-check">✓</div>
+                        <div class="service-text">Шефмонтажные работы непосредственно на объекте</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-check">✓</div>
+                        <div class="service-text">Сервисное обслуживание и обеспечение запасными частями</div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="contact-section">
+                    <h2 class="contact-title">Получить консультацию</h2>
+                    
+                    <div class="contact-buttons">
+                        <a href="mailto:info@kgs-ural.ru" class="button-primary">
+                            ✉️ Написать на Email
+                        </a>
+                        
+                        <a href="tel:88006007465" class="button-outline">
+                            📞 8 (800) 600-74-65
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="footer">
+                    <a href="https://kgs-ural.ru">
+                        <img src="https://cdn.poehali.dev/files/Логотип%20рабочий%20без%20фона.png" alt="КГС" class="footer-logo">
+                    </a>
+                    
+                    <div class="footer-tagline">
+                        КоперГруппСервис — надежный партнер в оборудовании для свайного фундаментостроения
+                    </div>
+                    
+                    <div class="footer-buttons">
+                        <a href="https://kgs-ural.ru" class="button-outline">
+                            Посетить сайт →
+                        </a>
+                        
+                        <a href="https://t.me/kgs_ural" class="telegram-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                            </svg>
+                            Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
