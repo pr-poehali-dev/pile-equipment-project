@@ -3,6 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useEffect, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 const equipmentCategories = [
   { icon: "Hammer", title: "Сваебойные молоты", url: "https://kgs-ural.ru/catalog/svaebojnye-moloty/", image: "https://cdn.poehali.dev/files/Сваебойные молоты.png" },
@@ -23,6 +27,13 @@ const services = [
 
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    comment: '',
+    agreed: false
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -175,24 +186,107 @@ export default function Index() {
 
             <div className="bg-white border-2 border-primary/20 rounded-2xl p-8 md:p-10 mb-8">
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
-                Свяжитесь с нами уже сегодня
+                Получить консультацию
               </h2>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <form 
+                className="max-w-xl mx-auto space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const subject = `Заявка на консультацию от ${formData.name}`;
+                  const body = `Имя: ${formData.name}%0D%0AТелефон: ${formData.phone}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AКомментарий:%0D%0A${formData.comment}`;
+                  window.location.href = `mailto:info@kgs-ural.ru?subject=${subject}&body=${body}`;
+                }}
+              >
+                <div>
+                  <Label htmlFor="name" className="text-gray-700 font-medium mb-2 block">
+                    Ваше имя<span className="text-red-500">*</span>
+                  </Label>
+                  <Input 
+                    id="name"
+                    type="text"
+                    placeholder="Иван Иванов"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                    className="border-gray-300 focus:border-secondary focus:ring-secondary"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="phone" className="text-gray-700 font-medium mb-2 block">
+                    Телефон<span className="text-red-500">*</span>
+                  </Label>
+                  <Input 
+                    id="phone"
+                    type="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    required
+                    className="border-gray-300 focus:border-secondary focus:ring-secondary"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="email" className="text-gray-700 font-medium mb-2 block">
+                    Email<span className="text-red-500">*</span>
+                  </Label>
+                  <Input 
+                    id="email"
+                    type="email"
+                    placeholder="email@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    required
+                    className="border-gray-300 focus:border-secondary focus:ring-secondary"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="comment" className="text-gray-700 font-medium mb-2 block">
+                    Комментарий
+                  </Label>
+                  <Textarea 
+                    id="comment"
+                    placeholder="Ваш вопрос или комментарий..."
+                    value={formData.comment}
+                    onChange={(e) => setFormData({...formData, comment: e.target.value})}
+                    rows={4}
+                    className="border-gray-300 focus:border-secondary focus:ring-secondary resize-none"
+                  />
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <Checkbox 
+                    id="agreed"
+                    checked={formData.agreed}
+                    onCheckedChange={(checked) => setFormData({...formData, agreed: checked as boolean})}
+                    required
+                    className="mt-1 border-gray-300 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary"
+                  />
+                  <Label htmlFor="agreed" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+                    Я согласен на обработку персональных данных в соответствии с политикой конфиденциальности
+                  </Label>
+                </div>
+
                 <Button 
+                  type="submit"
                   size="lg" 
-                  className="bg-secondary hover:bg-secondary/90 text-white font-semibold text-base px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 group"
-                  asChild
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-base px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                  disabled={!formData.agreed}
                 >
-                  <a href="mailto:info@kgs-ural.ru">
-                    <Icon name="Mail" className="mr-2 group-hover:scale-110 transition-transform" size={20} />
-                    Получить консультацию
-                  </a>
+                  <Icon name="Send" className="mr-2" size={20} />
+                  Отправить заявку
                 </Button>
-                
+              </form>
+
+              <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+                <p className="text-gray-600 mb-4">Или позвоните нам:</p>
                 <Button 
                   size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 group"
+                  variant="outline"
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold text-base px-8 py-3 rounded-xl group"
                   asChild
                 >
                   <a href="tel:88006007465">
@@ -211,7 +305,7 @@ export default function Index() {
                   className="h-28 md:h-32 w-auto"
                 />
               </a>
-              <p className="text-gray-900 font-bold mb-8 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto">
+              <p className="text-primary font-bold mb-8 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto">
                 КоперГруппСервис — надежный партнер в оборудовании для свайного фундаментостроения
               </p>
               <div className="flex items-center justify-center gap-8">
